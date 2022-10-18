@@ -15,7 +15,7 @@ setup(
     install_requires=['future'],
     entry_points={
         'console_scripts': [
-            'trivia-quiz=src.app:main']
+            'trivia-text-quiz=src.app:main']
     },
     classifiers=['Operating System :: OS Independent',
                  'Programming Language :: Python :: 2.7',

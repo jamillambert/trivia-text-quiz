@@ -10,7 +10,7 @@ grade: devel
 
 apps:
   trivia-text-quiz:
-    command: bin/trivia-quiz
+    command: bin/trivia-text-quiz
     plugs: [home,network-bind]
 parts:
   trivia-text-quiz:
