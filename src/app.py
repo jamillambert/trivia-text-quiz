@@ -1,15 +1,18 @@
 from os import system
 
-from html_parser import parse_site
-from quiz import Quiz
+from src.html_parser import parse_site
+from src.quiz import Quiz
 
 
 def input_number(text, min_number, max_number, default):
     """Returns a number input from the terminal or default if it fails
-    
+
     The input text is displayed to the terminal as a prompt for the user to input
     a number.  If a number is not entered within the input min and max values the
     default value is returned"""
+    if text == 'x':
+        # If x is entered at any time as an answer the quiz is stopped early
+        return -1
     try:
         number = int(input(text))
     except ValueError:
@@ -22,7 +25,7 @@ def input_number(text, min_number, max_number, default):
 
 def input_text(text, default):
     """Returns either the text in the default array if it is entered or it's index, otherwise the text at index 0 is returned
-    
+
     The input text is displayed to the terminal as a prompt for the user to input
     the index or text of the array."""
     return_text = 'invalid'
@@ -105,6 +108,9 @@ def new_game():
     choice = input("\nPress Enter to continue, or type 's' to change settings: ")
     if choice == 's':
         main_menu(quiz)
+    elif choice == 'x':
+        quiz.num_questions = 0
+        return quiz
     print("Sourcing questions from https://opentdb.com/")
     quiz.create_question_list()
     return quiz
@@ -117,13 +123,17 @@ def main():
 
         system('cls||clear')
         for i in range(quiz.num_questions):
-            quiz.ask_question(i)
+            if not quiz.ask_question(i):
+                i -= 1
+                break
 
-        print(
-            f"\n\033[1mYour final score was {quiz.score}/{quiz.question_number}\033[0m\n\n")
-        choice = input("Do you want to play again? (Y/N) ").lower()
-        if choice == 'y':
-            continue
+        if quiz.question_number > 0:
+            print(f"\n\033[1mYour final score was {quiz.score}/{quiz.question_number}\033[0m\n\n")
+            choice = input("Do you want to play again? (Y/N) ").lower()
+            if choice == 'y':
+                continue
+            else:
+                break
         else:
             break
 

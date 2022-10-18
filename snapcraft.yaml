@@ -1,10 +1,11 @@
 name: trivia-text-quiz
-base: core20
+base: core18
 version: '0.1.0'
 summary: Text based trivia quiz. Questions from the Open Trivia Database
 description: |
   This is a command line text base trivia quiz.  Questions are sourced
   from the Open Trivia Database in a user selectable category and difficulty.
+
 confinement: devmode
 grade: devel
 
@@ -15,6 +16,5 @@ apps:
 parts:
   trivia-text-quiz:
     plugin: python
-    python-version: python3
     source: .
     stage-packages: [ncbi-blast+]

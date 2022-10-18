@@ -1,7 +1,7 @@
 import os
 import sys
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='trivia-text-quiz',
@@ -9,17 +9,14 @@ setup(
     description='Text based trivia quiz. Questions from the Open Trivia Database',
     license='GPL v3',
     author='Jamil Lambert',
-    packages=['src'],
-    package_data={'src': ['description.txt']
-                  },
-    install_requires=['future'],
+    packages=find_packages(),
+    install_requires=['bs4'],
     entry_points={
         'console_scripts': [
             'trivia-text-quiz=src.app:main']
     },
     classifiers=['Operating System :: OS Independent',
-                 'Programming Language :: Python :: 2.7',
-                 'Programming Language :: Python :: 3.6',
+                 'Programming Language :: Python :: 3.10',
                  'Operating System :: MacOS :: MacOS X',
                  'Operating System :: Microsoft :: Windows',
                  'Operating System :: POSIX',

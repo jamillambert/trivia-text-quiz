@@ -1,8 +1,8 @@
 import random
 import re
 
-from html_parser import parse_site
-from question_model import Question
+from src.html_parser import parse_site
+from src.question_model import Question
 
 
 class Quiz:
