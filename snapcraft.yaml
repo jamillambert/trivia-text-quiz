@@ -16,6 +16,5 @@ apps:
 parts:
   trivia-text-quiz:
     plugin: python
-    source: https://github.com/jamillambert/trivia-text-quiz.git
-    source-type: git
+    source: .
     stage-packages: [ncbi-blast+]
