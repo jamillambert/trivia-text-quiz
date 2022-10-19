@@ -1,4 +1,4 @@
-name: trivia-src
+name: trivia-text-quiz
 base: core20
 version: '1.0.0'
 summary: Text based trivia quiz. Questions from the Open Trivia Database
@@ -11,10 +11,11 @@ grade: stable
 
 apps:
   trivia-text-quiz:
-    command: bin/trivia-src
+    command: bin/trivia-text-quiz
     plugs: [home,network-bind]
 parts:
   trivia-text-quiz:
     plugin: python
-    source: .
+    source: https://github.com/jamillambert/trivia-text-quiz.git
+    source-type: git
     stage-packages: [ncbi-blast+]
