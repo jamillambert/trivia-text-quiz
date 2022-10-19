@@ -1,13 +1,13 @@
 name: trivia-text-quiz
-base: core18
-version: '0.1.0'
+base: core20
+version: '1.0.0'
 summary: Text based trivia quiz. Questions from the Open Trivia Database
 description: |
   This is a command line text base trivia quiz.  Questions are sourced
   from the Open Trivia Database in a user selectable category and difficulty.
 
-confinement: devmode
-grade: devel
+confinement: strict
+grade: stable
 
 apps:
   trivia-text-quiz:

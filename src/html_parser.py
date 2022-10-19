@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
+
 def parse_site(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")

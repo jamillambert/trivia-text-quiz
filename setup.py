@@ -9,7 +9,7 @@ setup(
     description='Text based trivia quiz. Questions from the Open Trivia Database',
     license='GPL v3',
     author='Jamil Lambert',
-    packages=find_packages(),
+    packages=['src'],
     install_requires=['bs4'],
     entry_points={
         'console_scripts': [
