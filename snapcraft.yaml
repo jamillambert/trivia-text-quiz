@@ -12,7 +12,7 @@ grade: stable
 apps:
   trivia-text-quiz:
     command: bin/trivia-text-quiz
-    plugs: [home,network-bind]
+    plugs: [network]
 parts:
   trivia-text-quiz:
     plugin: python
