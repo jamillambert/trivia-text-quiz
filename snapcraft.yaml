@@ -17,4 +17,3 @@ parts:
   trivia-text-quiz:
     plugin: python
     source: .
-    stage-packages: [ncbi-blast+]
